@@ -1,0 +1,1 @@
+java -jar FilesFinder.jar -d "D:\IntelliJ IDEA Community Edition 2019.2.1\homework\for testing" deletme.txt -r

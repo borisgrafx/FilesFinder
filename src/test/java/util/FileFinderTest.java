@@ -22,6 +22,8 @@ class FileFinderTest {
         try {
             ArrayList<File> files = finder.searchFile("D:\\IntelliJ IDEA Community Edition 2019.2.1\\FilesFinder\\FilesToFind", "findme.txt", true);
             assertArrayEquals(expected.toArray(), files.toArray());
+            files = finder.searchFile(null, "findme.txt", true);
+            assertArrayEquals(expected.toArray(), files.toArray());
         } catch (FileNotExistsException e) {
             e.printStackTrace();
         }
@@ -29,6 +31,12 @@ class FileFinderTest {
         assertThrows(FileNotExistsException.class, () -> {
             ArrayList<File> files = finder.searchFile("D:\\IntelliJ IDEA Community Edition 2019.2.1\\FilesFinder\\FilesToFind", "gig.txt", false);
             assertArrayEquals(expected.toArray(), files.toArray());
+            files = finder.searchFile(null, "findme.txt", true);
+            assertArrayEquals(null, files.toArray());
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            Parser parser = new Parser();
+            parser.parse(new String[] {"-d", "-r", "-r", "-d"});
         });
     }
 }

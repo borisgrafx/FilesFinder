@@ -7,6 +7,8 @@ import org.kohsuke.args4j.Option;
 
 import java.util.ArrayList;
 
+//Класс, работающий с введённой в консоль строкой
+
 public class Parser {
     @Option(name = "-d", usage = "Directory search")
     private String path = null;
@@ -20,6 +22,8 @@ public class Parser {
 
     public void parse(String[] args) {
         CmdLineParser lineParser = new CmdLineParser(this);
+
+        //Проверка на корректность введённой строки
         try {
             lineParser.parseArgument(args);
             if (arguments.isEmpty()) {

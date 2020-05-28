@@ -21,10 +21,10 @@ class FileFinderTest {
         expected.add(new File("D:\\FilesFinder\\FilesToFind\\findme.txt"));
         FileFinder finder = new FileFinder();
         try {
-            //Испытание ключи -d и -r
+            //Испытание ключей -d и -r
             ArrayList<File> files = finder.searchFile("D:\\FilesFinder\\FilesToFind", "findme.txt", true);
             assertArrayEquals(expected.toArray(), files.toArray());
-            //Испытание отсутствие ключа -d
+            //Испытание отсутствия ключа -d
             files = finder.searchFile(null, "findme.txt", true);
             assertArrayEquals(expected.toArray(), files.toArray());
         } catch (FileNotExistsException e) {

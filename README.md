@@ -6,4 +6,4 @@
 
 CMD: java -jar FilesFinder.jar [-r] [-d directory] filename.txt
 
-Также содержатся тесты. Для их работы директория проекта должна быть "D:\FilesFinder".
+Также содержатся тесты.

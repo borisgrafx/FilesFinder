@@ -1,6 +1,5 @@
 package program;
 
-import exceptions.FileNotExistsException;
 import util.FileFinder;
 import util.Parser;
 
@@ -18,15 +17,11 @@ public class Main {
             String fileName = parser.getFileName();
             String path = parser.getPath();
             boolean needChild = parser.isNeedChild();
-            //Вызов функции поиска. Вывод результата поиска (список файлов / ошибка несуществования)
-            try {
-                FileFinder finder = new FileFinder();
-                ArrayList<File> files = finder.searchFile(path, fileName, needChild);
-                for (File file : files)
-                    System.out.println(file);
-            } catch (FileNotExistsException e) {
-                System.out.println(e.getMessage());
-            }
+            //Вызов функции поиска. Вывод результата поиска
+            FileFinder finder = new FileFinder();
+            ArrayList<File> files = finder.searchFile(path, fileName, needChild);
+            for (File file : files)
+                System.out.println(file);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
